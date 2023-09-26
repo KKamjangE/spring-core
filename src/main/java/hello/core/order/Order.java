@@ -13,7 +13,7 @@ public class Order { // 주문 클래스
         this.discountPrice = discountPrice;
     }
 
-    public int calculatePrice() { // 할인 가격 계산
+    public int calculatePrice() { // 할인된 가격 계산
         return itemPrice - discountPrice;
     }
 
