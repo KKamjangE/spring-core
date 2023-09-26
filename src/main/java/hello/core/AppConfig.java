@@ -16,6 +16,7 @@ public class AppConfig { // 객체의 생성과 연결 담당
     }
 
     public DiscountPolicy discountPolicy() { // 할인 정책
+//        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
 
