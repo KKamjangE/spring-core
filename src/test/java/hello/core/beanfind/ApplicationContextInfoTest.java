@@ -7,6 +7,8 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ApplicationContextInfoTest {
+    // AnnotationConfigApplicationContext: 스프링 컨테이너를 생성하는 클래스다
+    // AppConfig.class는 스프링 빈들을 구성하는 정보가 포함되어 있다
     AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class);
 
     @Test
