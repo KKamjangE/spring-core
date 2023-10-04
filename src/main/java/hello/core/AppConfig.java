@@ -11,7 +11,7 @@ import hello.core.order.OrderServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration // 설정 정보 어노테이션
+@Configuration // 스프링 설정 정보는 항상 @Configuration을 사용하자
 public class AppConfig { // 객체의 생성과 연결 담당
 
     // @Bean memberService -> new MemoryMemberRepository()
