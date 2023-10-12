@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-//@RequiredArgsConstructor // final이 붙은 객체를 참고해서 생성자를 자동으로 만들어준다
+//@RequiredArgsConstructor // lombok에서 final이 붙은 객체를 참고해서 생성자를 자동으로 만들어준다
 public class OrderServiceImpl implements OrderService{ // 주문 서비스 구현체
 
     private final MemberRepository memberRepository;
