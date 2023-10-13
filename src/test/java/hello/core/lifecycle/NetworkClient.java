@@ -1,5 +1,8 @@
 package hello.core.lifecycle;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 // InitializingBean을 상속해서 빈 초기화
 // DisposableBean을 상속해서 빈 소멸전 콜백 사용
 public class NetworkClient {
@@ -28,6 +31,7 @@ public class NetworkClient {
     }
 
     // 의존관계 주입이 끝나면 호출
+    @PostConstruct
     public void init() throws Exception {
         System.out.println("NetworkClient.init");
         connect();
@@ -35,6 +39,7 @@ public class NetworkClient {
     }
 
     // 빈이 종료될 때 호출
+    @PreDestroy
     public void close() throws Exception {
         System.out.println("NetworkClient.close");
         disconnect();
