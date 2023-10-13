@@ -17,7 +17,9 @@ public class BeanLifeCycleTest {
 
     @Configuration
     static class LifeCycleConfig {
-        @Bean
+
+        // 빈 설정에서 생명주기 콜백
+        @Bean(initMethod = "init", destroyMethod = "close")
         public NetworkClient networkClient() {
             NetworkClient networkClient = new NetworkClient(); // 인스턴스 생성
             networkClient.setUrl("http://hello-spring.dev");
