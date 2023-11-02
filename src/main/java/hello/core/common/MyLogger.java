@@ -14,7 +14,7 @@ public class MyLogger {
     private String requsetURL;
 
     public void setRequsetURL(String requsetURL) { // URL 외부에서 입력
-        this.uuid = requsetURL;
+        this.requsetURL = requsetURL;
     }
 
     public void log(String message) { // 로그를 찍는 함수
