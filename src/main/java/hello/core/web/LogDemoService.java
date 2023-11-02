@@ -9,10 +9,9 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LogDemoService {
 
-    private final ObjectProvider<MyLogger> myLoggerProvider; // myLogger를 찾을 수 있는 DL
+    private final MyLogger myLogger; // myLogger를 찾을 수 있는 DL
 
     public void logic(String id) {
-        MyLogger myLogger = myLoggerProvider.getObject(); // myLogger를 찾아온다
         myLogger.log("service id = " + id);
     }
 }
