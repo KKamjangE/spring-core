@@ -2,11 +2,13 @@ package hello.core.scope;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
+import jakarta.inject.Provider;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
+
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -34,21 +36,19 @@ public class SingletonWithPrototypeTest1 {
 
         ClientBean clientBean2 = ac.getBean(ClientBean.class);
         int count2 = clientBean2.logic();
-        assertThat(count2).isEqualTo(2);
+        assertThat(count2).isEqualTo(1);
     }
 
     @Component
     @Scope("singleton") // 싱글톤 스코프
     static class ClientBean {
-        private final PrototypeBean prototypeBean; // 생성 시점에 주입
 
         @Autowired
-        public ClientBean(PrototypeBean prototypeBean) { // 프로토타입 빈을 의존 관계로 주입받는다
-            this.prototypeBean = prototypeBean;
-        }
+        private Provider<PrototypeBean> provider;
 
         public int logic() {
-            // 주입 받은 프로토타입 빈의 count를 올리고 그 count값을 반환한다
+            // Provider를 사용해서 PrototypeBean을 DL한다
+            PrototypeBean prototypeBean = provider.get();
             prototypeBean.addCount();
             return prototypeBean.getCount();
         }
